@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root.dark {
+    --main-color: #201630 ;
+    --accent-color: #a21caf;
+    --font-color: #ffffffce;
+    --searchbar-color: #161616;
+    --shadow-color: none;
+    --background-color: #292929;
+}
+
+:root {
+    --main-color: #b08fff;
+    --accent-color: #d946ef;
+    --font-color: #000000;
+    --searchbar-color: #ffffff;
+    --shadow-color: #00000028;
+    --background-color: #8080803f;
+    --main-font-size: clamp(10px, 2.5vmin, 50px)
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: var(--main-font-size);
+}
+
+body {
+    width: 100vw;
+    height: 100vh; 
+    color: var(--font-color);
+}
+
+p {
+    font-size: 0.7rem;
+    padding: 0.5rem 1rem 0 1rem;
+}
+
+#container {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(4, 3fr) 2fr; /* 5 coloumns */
+    grid-template-rows: repeat(5, 4fr) 3fr; /* 6 rows */
+    aspect-ratio: 1/1;
+}
+
+#sidebar {
+    height: clamp(100vh, 100%, 100vh);
+    width: 100%;
+    display: grid;
+    background: var(--main-color);
+    grid-row: span 6;
+    grid-template-rows: repeat(10, 1fr);
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+#logo a {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    font-size: 1.5rem;
+    font-weight: 700;
+    align-items: center;
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+#sidebar nav ul {
+    list-style: none;
+    line-height: 1.5rem;
+}
+
+#sidebar nav ul li a {
+    color: var(--font-color);
+    text-decoration: none;
+}
+
+#sidebar nav ul li a:hover {
+    font-style: italic;
+    font-weight: bold;
+
+}
+
+#sidebar nav:first-of-type {
+    grid-row: 3/5;
+}
+
+#sidebar nav:last-of-type {
+    grid-row: 6;
+
+}
+
+#sidebar button {
+    padding: 0.5rem 1rem;
+    color: var(--font-color);
+    grid-row: 9;
+    background-color: var(--searchbar-color);
+    border-radius: 50vw;
+    border: none;
+    font-weight: 900;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    justify-items: center;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 1px 1px 10px var(--shadow-color);
+
+}
+
+#searchbar {
+    max-height: 100%;
+    width: 100%;
+    background: var(--searchbar-color);
+    box-shadow: 0 5px 10px var(--shadow-color);
+    grid-column: span 4;
+    grid-row: span 1;
+    z-index: 50;
+    display: grid;
+    grid-template-rows: calc(100%/3) calc(200%/3);
+    grid-template-columns: 6fr 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    padding-top: 0.6rem;
+}
+
+#searchbar div:first-of-type div {
+    width: auto;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#searchbar div:first-of-type input {
+    width: 40vw;
+    border-radius: 50vw;
+    padding: 0.3rem 1rem;
+    font-size: 0.8rem;
+    border: none;
+    outline: none;
+    background: var(--background-color);
+    color: var(--font-color);
+}
+
+#searchbar svg:first-of-type {
+    justify-self: right;
+}
+
+#searchbar div:nth-of-type(3) {
+    justify-self: left;
+}
+
+#searchbar div:nth-child(2) {
+    width: 40vw;
+}
+
+
+.profile-picture-container {
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    border: 3px solid var(--accent-color);
+    box-shadow: 3px 5px 4px var(--shadow-color);
+}
+
+.pfp {
+    height: 100%;
+    width: auto;
+    display: inline;
+    margin: 0 auto;
+    margin-left: -15%;
+}
+
+#small-profile {
+    width: 50px;
+    height: 50px;
+    margin-right: 1rem;
+    justify-self: right;
+}
+
+#large-profile {
+
+    display: grid;
+    grid-template-columns: auto auto;
+    align-content: center;
+}
+
+#large-profile div:first-of-type  {
+    height: 70px;
+    width: 70px;
+    justify-self: end;
+}
+
+#large-profile div:last-of-type {
+    height: 100%;
+    display: grid;
+    align-content: center;
+    margin-left: 0.5rem;
+}
+
+#searchbar button {
+    width: 80%;
+    border-radius: 50vw;
+    border: none;
+    padding: 0.4rem 0.5rem;
+    background: var(--accent-color);
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#content {
+    padding: 0 1.5rem;
+    max-width: 100%;
+    max-height: 100%;
+    grid-column: span 4;
+    grid-row: span 5;
+    background: var(--background-color);
+    display: grid;
+    gap: 0.5rem 1rem;
+    grid-template-rows: 1fr repeat(14, 2fr);
+    grid-template-columns:  repeat(3, 20fr) 19fr;
+    align-items: end;
+}
+
+#content h4 {
+    letter-spacing: 0.05rem;
+}
+
+#content h4:nth-of-type(1) {
+    grid-row: 2;
+    grid-column: 1;
+}
+
+#content h4:nth-of-type(2) {
+    grid-row: 2;
+    grid-column: 4;
+}
+
+#content h4:nth-of-type(3) {
+    grid-row: 9;
+    grid-column: 4;
+}
+
+#projects {
+    grid-row: 3/15;
+    grid-column: 1/4;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    display: grid;
+    row-gap: 0.5rem;
+    column-gap: 1.3rem;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    grid-template-rows: repeat(2, minmax(200px, 400px));
+    scrollbar-width: thin;
+}
+
+.project-tile {
+    max-height: 100%;
+    max-width: 100%;
+    border-left: 10px solid var(--accent-color);
+    border-radius: 10px;
+    background: var(--searchbar-color);
+    box-shadow: 4px 4px 6px var(--shadow-color);
+    margin-bottom: 10px;
+    margin-right: 10px;
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr;
+}
+
+.project-tile h5 {
+    padding: 0.5rem 0 0 1rem;
+}
+
+.project-tile p{
+    overflow: hidden;
+    padding-bottom: 0.5rem;
+    max-height: 100%;
+}
+
+.actions {
+    display: grid;
+    grid-template-columns: 1fr repeat(3, 25px);
+    max-width: 100%;
+    gap: 0.5rem;
+    padding-right: 1rem;
+}
+
+.actions div {
+    cursor: pointer;    
+}
+
+.actions div:nth-of-type(1) {
+    grid-column: 2;
+}
+
+#announcer {
+    width: 100%;
+    height: 100%;
+    grid-row: 3/9;
+    grid-column: 4;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    border-radius: 10px;
+    box-shadow: 4px 4px 6px var(--shadow-color);
+    background-color: var(--searchbar-color);
+    opacity: 0.5;
+}
+
+#announcements {
+    height: 85%;
+    width: 85%;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr) ;
+    overflow: hidden;
+}
+
+.announcement {
+    height: 100%;
+    width: 100%;
+    outline: 1px solid #9c9c9c;
+}
+
+#trending {
+    width: 100%;
+    height: 100%;
+    border: 2px solid red;
+    grid-row: 10/15;
+    grid-column: 4;
+}
+
+
